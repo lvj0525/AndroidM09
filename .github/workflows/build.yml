@@ -14,6 +14,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: Build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -37,6 +38,8 @@ jobs:
         run: ./gradlew assembleDebug
     
   deploy:
+    name: Deploy
+    needs: [build]
     runs-on: ubuntu-latest
     
     steps:
